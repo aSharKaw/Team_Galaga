@@ -9,6 +9,8 @@ public:
 	CPlayer();
 	~CPlayer();
 
+	Texture player_img;
+
 	float CPlayer_X;
 	float CPlayer_Y;
 

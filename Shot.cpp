@@ -24,7 +24,7 @@ void CShot::Play_shot()
 {
 
 	// マウスの左クリックで弾を１つ生成
-	if (app_env->isPushButton(Mouse::LEFT)) {
+	if (app_env->isPushKey(GLFW_KEY_LEFT_CONTROL)) {
 		for (int i = 0; i < elemsof(shot_data); ++i) {
 			// 配列の中から未使用のデータを探す
 			if (!shot_data[i].active) {
@@ -40,8 +40,10 @@ void CShot::Play_shot()
 		}
 	}
 
-	if (app_env->isPressKey('A')){ shot_X -= 5; }
-	if (app_env->isPressKey('D')){ shot_X += 5; }
+	if (app_env->isPressKey(GLFW_KEY_LEFT)){ shot_X -= 5; }
+	if (app_env->isPressKey(GLFW_KEY_RIGHT)){ shot_X += 5; }
+	if (shot_X >= 225)shot_X = 225;
+	if (shot_X <= -225)shot_X = -225;
 
 	// 使用中の弾を動かす
 	for (int i = 0; i < elemsof(shot_data); ++i) {

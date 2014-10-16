@@ -6,6 +6,7 @@
 //#include "lib/appEnv.hpp"
 #include "Main.h"
 #include "Player.h"
+#include "Enemy.h"
 //#include "Shot.h"
 
 
@@ -24,6 +25,7 @@ int main() {
 	app_env = new AppEnv(Window::WIDTH, Window::HEIGHT, false, false);
 
 	CPlayer Player;
+	CEnemy Enemy;
 	//CShot Shot;
 
 	while (1) {
@@ -34,6 +36,7 @@ int main() {
 		app_env->setupDraw();
 
 		Player.Draw_player();
+		Enemy.Draw_enemy();
 		//Shot.Play_shot();
 
 		//
