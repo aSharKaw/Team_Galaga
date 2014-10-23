@@ -7,6 +7,8 @@
 #include "Main.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "background.h"
+#include "Etc.h"
 //#include "Shot.h"
 
 
@@ -26,6 +28,8 @@ int main() {
 
 	CPlayer Player;
 	CEnemy Enemy;
+	CBackground Background;
+	CEtc Etc;
 	//CShot Shot;
 
 	while (1) {
@@ -37,6 +41,8 @@ int main() {
 
 		Player.Draw_player();
 		Enemy.Draw_enemy();
+		Background.draw_background();
+		Etc.HP_move();
 		//Shot.Play_shot();
 
 		//

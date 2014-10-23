@@ -3,30 +3,20 @@
 //#include "lib/appEnv.hpp"
 #include "Main.h"
 
-// ’e‚ÌÅ‘å”‚ğ’è‹`
-enum  {
-	SHOT_MAX = 2
-};
-
-// ’e‚Ì’è‹`
-struct EShot {
-	bool active;
-
-	float x;
-	float y;
-
-};
-
-
-
 class CEShot
 {
 public:
 	CEShot();
 	~CEShot();
 
+	bool active;
+
+	float E_X;
+	float E_Xv;
+
 	float shot_X;
-	float shot_Xv;
+	float shot_Y;
+
 	int count;
 	void Play_Eshot();
 };

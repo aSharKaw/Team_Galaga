@@ -10,10 +10,7 @@ enum  {
 
 // ’e‚Ì’è‹`
 struct Shot {
-	bool active;
 
-	float x;
-	float y;
 
 };
 
@@ -25,7 +22,19 @@ public:
 	CShot();
 	~CShot();
 
-	float shot_X;
+	bool active_1;
+	bool active_2;
+
+//	float x_1;
+//	float y_1;
+//	float x_2;
+//	float y_2;
+
+	float P_X;
+	float shot_X1;
+	float shot_Y1;
+	float shot_X2;
+	float shot_Y2;
 
 	void Play_shot();
 };
