@@ -1,21 +1,15 @@
 #include "Shot.h"
 
-
-// 弾を配列で用意
-//Shot shot_data[SHOT_MAX];
-
 CShot::CShot()
 {
+	//初期化
 	shot_X1 = 0.0;
 	shot_Y1 = 0.0;
 	shot_X2 = 0.0;
 	shot_Y2 = 0.0;
 
-	P_X = 0.0;
+//	P_X = 0.0;
 
-
-	// 初期化
-	// すべて「未使用」とする
 	active_1 = false;
 	active_2 = false;
 
@@ -25,10 +19,10 @@ CShot::~CShot()
 {
 }
 
-void CShot::Play_shot()
+void CShot::Play_shot(float P_X, float P_Y)
 {
 
-	// マウスの左クリックで弾を１つ生成
+	// 左CTRLで弾を１つ生成
 	if (app_env->isPushKey(GLFW_KEY_LEFT_CONTROL)) {
 		if (active_1 == false){
 			// 未使用→使用中
@@ -37,8 +31,8 @@ void CShot::Play_shot()
 			//プレイヤーのX位置を取得
 			shot_X1 = P_X;
 
-			// 初期位置は画面の下の方
-			shot_Y1 = -Window::HEIGHT / 2 + 50.0;
+			// Y座標初期位置は画面の下の方
+			shot_Y1 = P_Y;
 		}
 		else if (active_1 == true && active_2 == false){
 			// 未使用→使用中
@@ -47,12 +41,13 @@ void CShot::Play_shot()
 			//プレイヤーのX位置を取得
 			shot_X2 = P_X;
 
-			// 初期位置は画面の下の方
-			shot_Y2 = -Window::HEIGHT / 2 + 50.0;
+			// Y座標初期位置は画面の下の方
+			shot_Y2 = P_Y;
 		}
 
 	}
 
+	//プレイヤー位置の変更と制限
 	if (app_env->isPressKey(GLFW_KEY_LEFT)){ P_X -= 5; }
 	if (app_env->isPressKey(GLFW_KEY_RIGHT)){ P_X += 5; }
 	if (P_X >= 225)P_X = 225;

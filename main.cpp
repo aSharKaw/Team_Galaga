@@ -32,6 +32,9 @@ int main() {
 	CEtc Etc;
 	//CShot Shot;
 
+	bool twin_player = false;
+	bool torakuta = false;
+
 	while (1) {
 		// アプリウインドウが閉じられたらプログラムを終了
 		if (!app_env->isOpen()) return 0;
@@ -39,8 +42,14 @@ int main() {
 		// 描画準備
 		app_env->setupDraw();
 
-		Player.Draw_player();
-		Enemy.Draw_enemy();
+		if(app_env->isPushKey('K'))twin_player = true;
+		if(app_env->isPushKey('L'))twin_player = false;
+		if(app_env->isPressKey('M'))torakuta = true;
+		if(!app_env->isPressKey('M'))torakuta = false;
+
+		Player.Draw_player(twin_player, torakuta);
+		Enemy.Draw();
+		Enemy.Move();
 		Background.draw_background();
 		Etc.HP_move();
 		//Shot.Play_shot();
